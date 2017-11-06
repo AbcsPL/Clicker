@@ -4,7 +4,7 @@ var chop_amount = 1;
 
 var money = 0;
 var time = 0;
-var time_wait = 10000;
+var time_wait = 1000;
 
 var stone = 0;
 var coal = 0;
