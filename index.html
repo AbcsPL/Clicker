@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="click.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Clicker</title>
+	</head>
+	<body>
+		<div id="menu">
+			<table>
+				<tr>
+					<td class="title">Clicker</td>
+					<td><!--<button onClick="save()">Save</button></td>
+					<td><button onClick="load_game()">Load</button>--></td>
+				</tr>
+			</table>
+		</div>
+		<h1><u>Clicker</u></h1>
+		<p>You have <span id="time">0</span> time resources</p>
+		<h2>Clicking</h2>
+		<h3>Pickaxe</h3>
+		<p>You have <span id="stone">0</span> stone <button onClick="tr_stone()">TR</button></p>
+		<p>You have <span id="coal">0</span> coal <button onClick="tr_coal()">TR</button></p>
+		<p>You have <span id="iron">0</span> iron</p>
+		<p>You have <span id="gold">0</span> gold</p>
+		<table>
+		<tr><button onClick="mine(mine_amount)">Mine!</button><button onClick="chop(chop_amount)">Chop!</button></tr>
+		</table>
+		<button onClick="mine(mine_amount)">Mine!</button>
+		<h3>Axe</h3>
+		<p>You have <span id="wood">0</span> wood</p>
+		<button onClick="chop(chop_amount)">Chop!</button>
+		<h2>Crafting - tools</h2>
+		<p id="pick">Craft wooden pickaxe (25 wood)</p>
+		<button onClick="pick_upgrade()" id="pick_upgrade">Craft!</button>
+		<p id="furnace">Craft furnace (100 stone)</p>
+		<button onClick="craft_furnace()">Craft!</button>
+		
+		<h2>Furnace</h2>
+	</body>
+</html>
