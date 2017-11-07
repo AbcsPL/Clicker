@@ -18,19 +18,19 @@
 		</div>
 		<h1><u>Clicker</u></h1>
 		<p>You have <span id="time">0</span> time resources</p>
-		<h2>Clicking</h2>
-		<h3>Pickaxe</h3>
-		<p>You have <span id="iron">0</span> iron</p>
-		<p>You have <span id="gold">0</span> gold</p>
 		<table class="td_border">
 			<tr class="td_border">
 				<td class="td_border">
-					<button onClick="mine(mine_amount)">Mine!
-					</button>
+					<button onClick="mine(mine_amount)">Mine!</button>
 				</td>
 				<td class="td_border">
-					<button onClick="chop(chop_amount)">Chop!
-					</button>
+					<button onClick="chop(chop_amount)">Chop!</button>
+				</td>
+				<td class="td_border">
+					<button onClick="seed(seed_amount)">Find!</button>
+				</td>
+				<td class="td_border">
+					<button onClick="farm(farm_amount)">Farm!</button>
 				</td>
 			</tr>
 			<tr class="td_border">
@@ -42,6 +42,12 @@
 				</td>
 				<td class="td_border">
 					Wood: <span id="wood">0</span> <button onClick="tr()">TR</button><br />
+				</td>
+				<td class="td_border">
+					Seeds: <span id="wheat_seed">0</span> <button onClick="tr_wheat_seed">TR</button><br />
+				</td>
+				<td class="td_border">
+					Wheat: <span id="wheat">0</span><br />
 				</td>
 			</tr>
 		</table>

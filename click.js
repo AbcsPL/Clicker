@@ -1,6 +1,8 @@
 var random = 0;
 var mine_amount = 1;
 var chop_amount = 1;
+var seed_amount = 1;
+var farm_amount = 1;
 
 var money = 0;
 var time = 0;
@@ -13,41 +15,22 @@ var gold = 0;
 
 var wood = 0;
 
+var wheat_seed = 0;
 var wheat = 0;
+var potato_seed = 0;
+var potato = 0;
 
 var pick = 0;
 var axe = 0;
 var sword = 0;
 var hoe = 0;
 
-var furnace = 0;
+var mining = 0;
+var choping = 0;
+var fighting = 0;
+var farming = 0;
 
-//function save() {
-//	var save_game = {
-//		mine_amount: mine_amount,
-//		chop_amount: chop_amount,
-//		money: money,
-//		time: time,
-//		time_wait: time_wait,
-//		stone: stone,
-//		coal: coal,
-//		iron: iron,
-//		gold: gold,
-//		wood: wood,
-//		wheat: wheat,
-//		pick: pick,
-//		axe: axe,
-//		sword: sword,
-//		hoe: hoe
-//	}
-//	localStorage.setItem("save_game",JSON.stringify(save_game));
-//}
-//function load_game() {
-//	if (typeof save_game.mine_amount !== "undefined") mine_amount = savegame.mine_amount;
-//	if (typeof save_game.chop_amount !== "undefined") chop_amount = savegame.chop_amount;
-//	if (typeof save_game.money !== "undefined") money = savegame.money;
-//	if (typeof save_game.time !== "undefined") time = savegame.time;
-//}
+var furnace = 0;
 
 function mine(number) {
 	random = Math.floor((Math.random() * 1000) + 1);
@@ -111,6 +94,26 @@ function chop(number) {
 		wood = wood + number;
 		document.getElementById("wood").innerHTML = wood;
 	}
+}
+
+function seed(number) {
+	random = Math.floor((Math.random() * 100) + 1);
+	if (farming == 0)
+		wheat_seed = wheat_seed + number;
+	document.getElementById("wheat_seed").innerHTML = wheat_seed;
+}
+
+function farm(number) {
+	random = Math.floor((Math.random() * 100) + 1);
+	if (hoe == 0) {
+		if (wheat_seed >= number) {
+			wheat_seed = wheat_seed - number;
+			wheat = wheat + number;
+			document.getElementById("wheat_seed").innerHTML = wheat_seed;
+			document.getElementById("wheat").innerHTML = wheat;
+		}
+	}
+	setTimeout(farm(), 1000);
 }
 
 function craft_furnace() {
