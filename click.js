@@ -32,7 +32,20 @@ var farming = 0;
 
 var furnace = 0;
 
-function mine(number) {
+function open_tab(evt, tab_name) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tab_name).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+	function mine(number) {
 	random = Math.floor((Math.random() * 1000) + 1);
 	if (pick == 1) {
 		stone = stone + number;
@@ -113,7 +126,6 @@ function farm(number) {
 			document.getElementById("wheat").innerHTML = wheat;
 		}
 	}
-	setTimeout(farm(), 1000);
 }
 
 function craft_furnace() {
@@ -121,6 +133,7 @@ function craft_furnace() {
 		furnace++;
 		stone = stone - 100;
 		document.getElementById("stone").innerHTML = stone;
+		document.getElementById("furnace_visibility").style.display = "block";
 	}
 }
 
