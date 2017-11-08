@@ -44,3 +44,7 @@ div.tab {
     border: 4px double black;
     border-top: none;
 }
+
+.hide {
+	display: none;
+}

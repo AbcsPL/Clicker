@@ -45,7 +45,7 @@ function open_tab(evt, tab_name) {
     document.getElementById(tab_name).style.display = "block";
     evt.currentTarget.className += " active";
 }
-	function mine(number) {
+function mine(number) {
 	random = Math.floor((Math.random() * 1000) + 1);
 	if (pick == 1) {
 		stone = stone + number;
@@ -88,7 +88,8 @@ function pick_upgrade() {
 	if (pick == 0 && wood >= 25) {
 		wood = wood - 25;
 		pick++;
-		document.getElementById("pick").innerHTML = 'Craft stone pickaxe (50 wood & 30 stone)';
+		document.getElementById("wooden_pickaxe").style.display = "none";
+		document.getElementById("stone_pickaxe").style.display = "table-row";
 		document.getElementById("wood").innerHTML = wood;
 	}
 	else if (pick == 1 && wood >= 50 && stone >= 30) {
@@ -97,7 +98,16 @@ function pick_upgrade() {
 		pick++;
 		document.getElementById("pick").innerHTML = 'Craft iron pickaxe (100 wood & 40 stone & 25 iron)';
 		document.getElementById("wood").innerHTML = wood;
-		document.getElementById("stone").innerHTML = stone; 
+		document.getElementById("stone").innerHTML = stone;
+	}
+	else if (pick == 2 && wood >= 100 && stone >= 40 && iron >= 25){
+		wood = wood - 100;
+		stone = stone - 40;
+		iron = iron - 25;
+		pick++;
+		document.getElementById("wood").innerHTML = wood;
+		document.getElementById("stone").innerHTML = stone;
+		document.getElementById("iron").innerHTML = iron;
 	}
 }
 
@@ -134,6 +144,7 @@ function craft_furnace() {
 		stone = stone - 100;
 		document.getElementById("stone").innerHTML = stone;
 		document.getElementById("furnace_visibility").style.display = "block";
+		document.getElementById("furnace").style.display = "none";
 	}
 }
 
