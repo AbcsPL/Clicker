@@ -13,6 +13,7 @@ var coal = 0;
 var iron = 0;
 var iron_bar = 0;
 var gold = 0;
+var gold_bar = 0;
 
 var wood = 0;
 
@@ -74,6 +75,7 @@ function mine(number) {
 		document.getElementById("iron").innerHTML = iron;
 		document.getElementById("iron_furnace").innerHTML = iron;
 		document.getElementById("gold").innerHTML = gold;
+		document.getElementById("gold_furnace").innerHTML = gold;
 	}
 }
 function pick_upgrade() {
@@ -90,10 +92,10 @@ function pick_upgrade() {
 		document.getElementById("stone_pickaxe").style.display = "none";
 		document.getElementById("iron_pickaxe").style.display = "table-row";
 	}
-	else if (pick == 2 && wood >= 100 && stone >= 40 && iron >= 25){
+	else if (pick == 2 && wood >= 100 && stone >= 40 && iron_bar >= 25){
 		wood = wood - 100;
 		stone = stone - 40;
-		iron = iron - 25;
+		iron_bar = iron_bar - 25;
 		pick++;
 		document.getElementById("iron_pickaxe").style.display = "none";
 		document.getElementById("gold_pickaxe").style.display = "table-row";
@@ -102,6 +104,8 @@ function pick_upgrade() {
 	document.getElementById("stone").innerHTML = stone;
 	document.getElementById("iron").innerHTML = iron;
 	document.getElementById("iron_furnace").innerHTML = iron;
+	document.getElementById("iron_bar").innerHTML = iron_bar;
+	document.getElementById("iron_bar_furnace").innerHTML = iron_bar;
 }
 function axe_upgrade() {
 	if (axe == 0 & wood >= 25) {
@@ -125,10 +129,10 @@ function chop() {
 	}
 }
 
-function seed(number) {
+function seed() {
 	random = Math.floor((Math.random() * 100) + 1);
 	if (farming == 0)
-		wheat_seed = wheat_seed + number;
+		wheat_seed = wheat_seed + seed_amount;
 	document.getElementById("wheat_seed").innerHTML = wheat_seed;
 }
 
@@ -172,7 +176,12 @@ function melt_gold() {
 		gold = gold - 1;
 		gold_bar = gold_bar + 1;
 		coal = coal - 4;
-		
+		document.getElementById("gold").innerHTML = gold;
+		document.getElementById("gold_furnace").innerHTML = gold;
+		document.getElementById("gold_bar").innerHTML = gold_bar;
+		document.getElementById("gold_bar_furnace").innerHTML = gold_bar;
+		document.getElementById("coal").innerHTML = coal;
+		document.getElementById("coal_furnace").innerHTML = coal;
 	}
 }
 
