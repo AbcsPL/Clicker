@@ -11,6 +11,7 @@ var time_wait = 1000;
 var stone = 0;
 var coal = 0;
 var iron = 0;
+var iron_bar = 0;
 var gold = 0;
 
 var wood = 0;
@@ -45,6 +46,7 @@ function open_tab(evt, tab_name) {
     document.getElementById(tab_name).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
 function mine(number) {
 	random = Math.floor((Math.random() * 1000) + 1);
 	if (pick == 1) {
@@ -57,7 +59,9 @@ function mine(number) {
 		else if (random > 950) {iron = iron + number;}
 		document.getElementById("stone").innerHTML = stone;
 		document.getElementById("coal").innerHTML = coal;
+		document.getElementById("coal_furnace").innerHTML = coal;
 		document.getElementById("iron").innerHTML = iron;
+		document.getElementById("iron_furnace").innerHTML = iron;
 	}
 	else if (pick == 3) {
 		if (random <= 765) {stone = stone + number;}
@@ -66,55 +70,57 @@ function mine(number) {
 		else if (random > 991) {gold = gold + number;}
 		document.getElementById("stone").innerHTML = stone;
 		document.getElementById("coal").innerHTML = coal;
+		document.getElementById("coal_furnace").innerHTML = coal;
 		document.getElementById("iron").innerHTML = iron;
+		document.getElementById("iron_furnace").innerHTML = iron;
 		document.getElementById("gold").innerHTML = gold;
 	}
 }
-
-function tr_stone() {
-	stone = stone + time;
-	time = 0;
-	document.getElementById("stone").innerHTML = stone;
-	document.getElementById("time").innerHTML = time;
-}
-function tr_coal() {
-	coal = coal + (time - time % 5) / 5;
-	time = time % 5;
-	document.getElementById("coal").innerHTML = coal;
-	document.getElementById("time").innerHTML = time;
-}
-
 function pick_upgrade() {
 	if (pick == 0 && wood >= 25) {
 		wood = wood - 25;
 		pick++;
 		document.getElementById("wooden_pickaxe").style.display = "none";
 		document.getElementById("stone_pickaxe").style.display = "table-row";
-		document.getElementById("wood").innerHTML = wood;
 	}
 	else if (pick == 1 && wood >= 50 && stone >= 30) {
 		wood = wood - 50;
 		stone = stone - 30;
 		pick++;
-		document.getElementById("pick").innerHTML = 'Craft iron pickaxe (100 wood & 40 stone & 25 iron)';
-		document.getElementById("wood").innerHTML = wood;
-		document.getElementById("stone").innerHTML = stone;
+		document.getElementById("stone_pickaxe").style.display = "none";
+		document.getElementById("iron_pickaxe").style.display = "table-row";
 	}
 	else if (pick == 2 && wood >= 100 && stone >= 40 && iron >= 25){
 		wood = wood - 100;
 		stone = stone - 40;
 		iron = iron - 25;
 		pick++;
-		document.getElementById("wood").innerHTML = wood;
-		document.getElementById("stone").innerHTML = stone;
-		document.getElementById("iron").innerHTML = iron;
+		document.getElementById("iron_pickaxe").style.display = "none";
+		document.getElementById("gold_pickaxe").style.display = "table-row";
 	}
+	document.getElementById("wood").innerHTML = wood;
+	document.getElementById("stone").innerHTML = stone;
+	document.getElementById("iron").innerHTML = iron;
+	document.getElementById("iron_furnace").innerHTML = iron;
+}
+function axe_upgrade() {
+	if (axe == 0 & wood >= 25) {
+		wood = wood - 25;
+		axe++;
+		document.getElementById("wooden_axe").style.display = "none";
+	}
+	document.getElementById("wood").innerHTML = wood;
+	chop_amount = axe + 1;
 }
 
-function chop(number) {
+function chop() {
 	random = Math.floor((Math.random() * 100) + 1);
-	if (axe == 0) {
-		wood = wood + number;
+	if (axe == 0 || 1) {
+		wood = wood + chop_amount;
+		document.getElementById("wood").innerHTML = wood;
+	}
+	else if (axe == 2) {
+		wood = wood + chop_amount;
 		document.getElementById("wood").innerHTML = wood;
 	}
 }
@@ -146,6 +152,72 @@ function craft_furnace() {
 		document.getElementById("furnace_visibility").style.display = "block";
 		document.getElementById("furnace").style.display = "none";
 	}
+}
+
+function melt_iron() {
+	if (iron >= 1 && coal >= 1) {
+		iron = iron - 1;
+		iron_bar = iron_bar + 1;
+		coal = coal - 1;
+		document.getElementById("iron").innerHTML = iron;
+		document.getElementById("iron_furnace").innerHTML = iron;
+		document.getElementById("iron_bar").innerHTML = iron_bar;
+		document.getElementById("iron_bar_furnace").innerHTML = iron_bar;
+		document.getElementById("coal").innerHTML = coal;
+		document.getElementById("coal_furnace").innerHTML = coal;
+	}
+}
+function melt_gold() {
+	if (gold >= 1 && coal >= 4) {
+		gold = gold - 1;
+		gold_bar = gold_bar + 1;
+		coal = coal - 4;
+		
+	}
+}
+
+function tr_stone() {
+	stone = stone + time;
+	time = 0;
+	document.getElementById("stone").innerHTML = stone;
+	document.getElementById("time").innerHTML = time;
+}
+function tr_coal() {
+	if (pick == 2) {
+		coal = coal + (time - time % 10) / 10;
+		time = time % 10;
+	}
+	if (pick == 3) {
+		coal = coal + (time - time % 8) / 8;
+		time = time % 8;
+	}
+	document.getElementById("coal").innerHTML = coal;
+	document.getElementById("coal_furnace").innerHTML = coal;
+	document.getElementById("time").innerHTML = time;
+}
+function tr_iron() {
+	if (pick == 2) {
+		iron = iron + (time - time % 25) / 25;
+		time = time % 25
+	}
+	document.getElementById("iron").innerHTML = iron;
+	document.getElementById("time").innerHTML = time;
+}
+function tr_gold() {
+	if (pick == 3) {
+		gold = gold + (time - time % 100) / 100;
+		time = time % 100;
+	}
+	document.getElementById("gold").innerHTML = gold;
+	document.getElementById("time").innerHTML = time;
+}
+function tr_wood() {
+	if (axe == 0) {
+		wood = wood + (time - time % 5) / 5;
+		time = time % 5
+	}
+	document.getElementById("wood").innerHTML = wood;
+	document.getElementById("time").innerHTML = time;
 }
 
 window.setInterval(function(){
