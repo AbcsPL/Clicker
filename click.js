@@ -6,6 +6,7 @@ var farm_amount = 1;
 
 var money = 0;
 var time = 0;
+var total_time = 0;
 var time_wait = 1000;
 
 var stone = 0;
@@ -120,11 +121,11 @@ function axe_upgrade() {
 function chop() {
 	random = Math.floor((Math.random() * 100) + 1);
 	if (axe == 0 || 1) {
-		wood = wood + chop_amount;
+		wood = wood + Math.pow(2, axe);
 		document.getElementById("wood").innerHTML = wood;
 	}
 	else if (axe == 2) {
-		wood = wood + chop_amount;
+		wood = wood + Math.pow(2, axe);
 		document.getElementById("wood").innerHTML = wood;
 	}
 }
@@ -186,10 +187,12 @@ function melt_gold() {
 }
 
 function tr_stone() {
+	if (pick >= 1) {
 	stone = stone + time;
 	time = 0;
 	document.getElementById("stone").innerHTML = stone;
 	document.getElementById("time").innerHTML = time;
+	}
 }
 function tr_coal() {
 	if (pick == 2) {
@@ -231,5 +234,7 @@ function tr_wood() {
 
 window.setInterval(function(){
 	time++;
+	total_time++;
 	document.getElementById("time").innerHTML = time;
+	document.getElementById("total_time").innerHTML = total_time;
 }, time_wait);

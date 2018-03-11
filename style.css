@@ -45,7 +45,27 @@ div.tab {
     border: 4px double black;
     border-top: none;
 }
-
+.tablinks {
+    border: none;
+    color: black;
+	background-color: #DDDDDD;
+    padding: 6px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+	transition-duration: 0.5s;
+}
+.tablinks:hover {
+    border: none;
+    color: black;
+	background-color: #CECECE;
+    padding: 6px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+}
 .hide {
 	display: none;
 }

@@ -6,14 +6,18 @@
 		<title>Clicker</title>
 	</head>
 	<body>
+		<div id="main_menu">
+			
+		</div>
 		<div id="menu">
 			<table class="td_border">
 				<tr class="td_border">
-					<td class="title td_border">Clicker</td>
+					<td class="title td_border" onClick="main_menu">Clicker</td>
 					<td class="td_border"><button class="tablinks" onclick="open_tab(event, 'clicker_tab')">Clicker</button></td>
 					<td class="td_border"><button class="tablinks" onclick="open_tab(event, 'crafting_tab')">Crafting</button></td>
 					<td class="td_border"><button id="furnace_visibility" class="tablinks" onclick="open_tab(event, 'furnace_tab')">Furnace</button></td>
-					<td class="td_border"><a class="menu" href="update.html">Update log</a>
+					<td class="td_border"><button class="tablinks" onclick="open_tab(event, 'stats_tab')">Stats</button></td>
+					<td class="td_border"><a class="menu" target="_blank" href="update.html">Update log</a>
 				</tr>
 			</table>
 		</div>
@@ -45,7 +49,9 @@
 						Gold: <span id="gold">0</span> <button class="tr_gold tr" onClick="tr_gold()">TR</button>
 					</td>
 					<td>
-						Iron bar: <span id="iron_bar">0</span>
+						<br />
+						<br />
+						Iron bar: <span id="iron_bar">0</span><br />
 						Gold bar: <span id="gold_bar">0</span>
 					</td>
 					<td>
@@ -94,7 +100,20 @@
 				</tr>
 			</table>
 		</div>
-		<div id="furnace_tab" class="tabcontent"><h1>Furnace</h1>
+		<div id="stats_tab" class="tabcontent"><h1><u>Stats</u></h1>
+			<h3>Total</h3>
+			<table>
+				<tr>
+					<th>Item</th>
+					<th>Amount earned</th>
+				</tr>
+				<tr>
+					<td>Time resources
+					<td id="total_time">0</td>
+				</tr>
+			</table>
+		</div>
+		<div id="furnace_tab" class="tabcontent"><h1><u>Furnace</u></h1>
 			<p>You have <span id="coal_furnace">0</span> coal</p>
 			<table>
 				<tr>
