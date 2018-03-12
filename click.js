@@ -187,15 +187,23 @@ function melt_gold() {
 }
 
 function tr_stone() {
-	if (pick >= 1) {
+	if (pick == 0) {
+		infobox("Your just need a pickaxe");
+	}
+	else if (pick >= 1) {
 	stone = stone + time;
+	infobox("You created " + time + " stone for a cost of " + time + " time resources.");
 	time = 0;
 	document.getElementById("stone").innerHTML = stone;
 	document.getElementById("time").innerHTML = time;
 	}
 }
 function tr_coal() {
+	if (pick == 0 || 1) {
+		infobox("Your pickaxe need to be at least stone");
+	}
 	if (pick == 2) {
+		infobox("You created " + (time - time % 10) / 10 + " coal for a cost of " + (time - (time % 10)) + " time resources.");
 		coal = coal + (time - time % 10) / 10;
 		time = time % 10;
 	}
@@ -208,15 +216,28 @@ function tr_coal() {
 	document.getElementById("time").innerHTML = time;
 }
 function tr_iron() {
-	if (pick == 2) {
+	if (pick < 2) {
+		infobox("Your pickaxe need to be at least stone");
+	}
+	else if (pick == 2) {
+		infobox("You created " + (time - time % 25) / 25 + " iron for a cost of " + (time - (time % 25)) + " time resources");
 		iron = iron + (time - time % 25) / 25;
-		time = time % 25
+		time = time % 25;
+	}
+	else if (pick == 3) {
+		infobox("You created " + (time - time % 20) / 20 + " iron for a cost of " + (time - (time % 20)) + " time resources");
+		iron = iron + (time - time % 20) / 20;
+		time = time % 25;
 	}
 	document.getElementById("iron").innerHTML = iron;
 	document.getElementById("time").innerHTML = time;
 }
 function tr_gold() {
+	if (pick < 3) {
+		infobox("Your pickaxe need to be at least iron.");
+	}
 	if (pick == 3) {
+		if (time >= 5) {infobox("You created " + (time - time % 100) / 100 + " gold for a cost of " + (time - (time % 100)) + " time resources");}
 		gold = gold + (time - time % 100) / 100;
 		time = time % 100;
 	}
@@ -225,10 +246,18 @@ function tr_gold() {
 }
 function tr_wood() {
 	if (axe == 0) {
+		if (time >= 5) {infobox("You created " + (time - time % 5) / 5 + " wood for a cost of " + (time - (time % 5)) + " time resources");}
 		wood = wood + (time - time % 5) / 5;
-		time = time % 5
+		time = time % 5;
 	}
 	document.getElementById("wood").innerHTML = wood;
+	document.getElementById("time").innerHTML = time;
+}
+function tr_wheat() {
+	if (time >= 4) {infobox("You created " + (time - time % 4) / 4 + " wheat seeds for a cost of " + (time - (time % 4)) + " time resources");}
+	wheat_seed = wheat_seed + (time - time % 4) / 4;
+	time = time % 4;
+	document.getElementById("wheat_seed").innerHTML = wheat_seed;
 	document.getElementById("time").innerHTML = time;
 }
 
@@ -238,3 +267,7 @@ window.setInterval(function(){
 	document.getElementById("time").innerHTML = time;
 	document.getElementById("total_time").innerHTML = total_time;
 }, time_wait);
+
+function infobox(text) {
+	document.getElementById("info_box").innerHTML = text;
+}

@@ -18,6 +18,7 @@
 					<td class="td_border"><button id="furnace_visibility" class="tablinks" onclick="open_tab(event, 'furnace_tab')">Furnace</button></td>
 					<td class="td_border"><button class="tablinks" onclick="open_tab(event, 'stats_tab')">Stats</button></td>
 					<td class="td_border"><a class="menu" target="_blank" href="update.html">Update log</a>
+					<td class="td_border"><p id="info_box"></p></td>
 				</tr>
 			</table>
 		</div>
@@ -25,42 +26,54 @@
 			<p>You have <span id="time">0</span> time resources</p>
 			<table>
 				<tr>
-					<td>
-						<button onClick="mine(mine_amount)">Mine!</button>
+					<td colspan="2">
+						<button class="work_button" onClick="mine(mine_amount)">Mine!</button>
 					</td>
 					<td>
-						<button id="furnace_visibility" class="tablinks" onclick="open_tab(event, 'furnace_tab')">Furnace</button>
+						<button id="furnace_visibility" class="work_button tablinks" onclick="open_tab(event, 'furnace_tab')">Furnace</button>
+					</td>
+					<td colspan="2">
+						<button class="work_button" onClick="chop()">Chop!</button>
+					</td>
+					<td colspan="2">
+						<button class="work_button" onClick="seed()">Search!</button>
 					</td>
 					<td>
-						<button onClick="chop()">Chop!</button>
-					</td>
-					<td>
-						<button onClick="seed()">Search!</button>
-					</td>
-					<td>
-						<button onClick="farm(farm_amount)">Farm!</button>
+						<button class="work_button" onClick="farm(farm_amount)">Farm!</button>
 					</td>
 				</tr>
 				<tr>
-					<td>
-						Stone: <span id="stone">0</span> <button class="tr_stone tr" onClick="tr_stone()">TR</button><br />
-						Coal: <span id="coal">0</span> <button class="tr_coal tr" onClick="tr_coal()">TR</button><br />
-						Iron: <span id="iron">0</span> <button class="tr_iron tr" onClick="tr_iron()">TR</button><br />
-						Gold: <span id="gold">0</span> <button class="tr_gold tr" onClick="tr_gold()">TR</button>
+					<td class="taller_text">
+						Stone: <span id="stone">0</span><br />
+						Coal: <span id="coal">0</span><br />
+						Iron: <span id="iron">0</span><br />
+						Gold: <span id="gold">0</span>
 					</td>
 					<td>
+						<button class="tr_stone tr" onClick="tr_stone()">TR</button><br />
+						<button class="tr_coal tr" onClick="tr_coal()">TR</button><br />
+						<button class="tr_iron tr" onClick="tr_iron()">TR</button><br />
+						<button class="tr_gold tr" onClick="tr_gold()">TR</button>
+					</td>
+					<td class="taller_text">
 						<br />
 						<br />
 						Iron bar: <span id="iron_bar">0</span><br />
 						Gold bar: <span id="gold_bar">0</span>
 					</td>
-					<td>
-						Wood: <span id="wood">0</span> <button onClick="tr_wood()">TR</button><br />
+					<td class="taller_text">
+						Wood: <span id="wood">0</span> <br />
 					</td>
 					<td>
-						Seeds: <span id="wheat_seed">0</span> <button onClick="tr_wheat_seed">TR</button><br />
+						<button class="tr_wood tr" onClick="tr_wood()">TR</button>
+					</td>
+					<td class="taller_text">
+						Seeds: <span id="wheat_seed">0</span><br />
 					</td>
 					<td>
+						<button class="tr_wheat tr" onClick="tr_wheat()">TR</button>
+					</td>
+					<td class="taller_text">
 						Wheat: <span id="wheat">0</span><br />
 					</td>
 				</tr>
@@ -76,27 +89,27 @@
 				<tr id="wooden_pickaxe">
 					<td>Wooden pickaxe</td>
 					<td>25 wood</td>
-					<td><button onClick="pick_upgrade()" id="pick_upgrade">Craft!</button></td>
+					<td><button onClick="pick_upgrade()" class="craft_button" id="pick_upgrade">Craft!</button></td>
 				</tr>
 				<tr class="hide" id="stone_pickaxe">
 					<td>Stone pickaxe</td>
 					<td>50 wood<br />30 stone</td>
-					<td><button onClick="pick_upgrade()" id="pick_upgrade">Craft!</button></td>
+					<td><button onClick="pick_upgrade()" class="craft_button" id="pick_upgrade">Craft!</button></td>
 				</tr>
 				<tr class="hide" id="iron_pickaxe">
 					<td>Iron pickaxe</td>
 					<td>100 wood<br />40 stone<br />25 iron bars</td>
-					<td><button onClick="pick_upgrade()" id="pick_upgrade">Craft!</button></td>
+					<td><button onClick="pick_upgrade()" class="craft_button" id="pick_upgrade">Craft!</button></td>
 				</tr>
 				<tr id="wooden_axe">
 					<td>Wooden axe</td>
 					<td>25 wood</td>
-					<td><button onClick="axe_upgrade()" id="axe_upgrade">Craft!</button></td>
+					<td><button onClick="axe_upgrade()" class="craft_button" id="axe_upgrade">Craft!</button></td>
 				</tr>
 				<tr id="furnace">
 					<td>Furnace</td>
 					<td>100 stone</td>
-					<td><button onClick="craft_furnace()">Craft!</button><td>
+					<td><button onClick="craft_furnace()" class="craft_button">Craft!</button><td>
 				</tr>
 			</table>
 		</div>

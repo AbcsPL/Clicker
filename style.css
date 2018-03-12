@@ -3,7 +3,7 @@ body {
 	background-color: #EEDDAA
 }
 #menu {
-	background-image: url("menu_background.jpg");
+	background-image: url("black.png");
 	height: 50%;
 	width: 100%;
 	border: 1px solid black;
@@ -13,10 +13,10 @@ body {
 	text-decoration: underline;
 }
 #update_log {
-	background-image: url("background.jpg");
-	width: 100%;
+	background-image: url("black.png");
+	align: center;
+	width: 99%;
 	height: 100%;
-	background-color: #DDCC99;
 	border: 5px solid black;
 }
 .menu {
@@ -54,7 +54,7 @@ div.tab {
     text-decoration: none;
     display: inline-block;
     font-size: 32px;
-	transition-duration: 0.5s;
+	transition-duration: 0.6s;
 }
 .tablinks:hover {
     border: none;
@@ -66,22 +66,81 @@ div.tab {
     display: inline-block;
     font-size: 32px;
 }
+.work_button {
+    border: none;
+    color: black;
+	background-color: #DDDDDD;
+    padding: 6px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+	transition-duration: 0.3s;
+}
+.work_button:hover {
+	resize: horizontal;
+	border: none;
+    color: black;
+	background-color: #CECECE;
+    padding: 6px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+}
+.craft_button {
+    border: none;
+    color: black;
+	background-color: #DDDDDD;
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+	transition-duration: 0.4s;
+}
+.craft_button:hover {
+	border: none;
+    color: black;
+	background-color: #CECECE;
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+}
+.tr {
+	border: 1px dashed;
+    color: black;
+	background-color: #DDDDDD;
+    padding: 2px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+	transition-duration: 0.4s;
+}
+.tr:hover {
+	border: 1px solid;
+    color: black;
+	background-color: #CECECE;
+    padding: 2px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
 .hide {
 	display: none;
 }
-table {
+table, tr, th, td {
 	border: 1px solid black;
 	text-align: center;
 }
-tr {
-	border: 1px solid black;
-	text-align: center;
+#info_box {
+	padding-left: 20px;
+	transition-duration: 1s
 }
-th {
-	border: 1px solid black;
-	text-align: center;
-}
-td {
-	border: 1px solid black;
-	text-align: center;
+.taller_text {
+	font-size: 20px;
 }
